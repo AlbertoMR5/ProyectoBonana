@@ -173,13 +173,15 @@ public class ProyectoBonana {
             String linea;
             while ((linea = reader.readLine()) != null) {
                 try {
-                    String[] campos = linea.split(";");
-                    if (campos.length != 4) continue;
+                    String[] campos = linea.split(";"); //split(";") Divide cada línea usando el punto y coma como separador.
+
+
+                    if (campos.length != 4) continue; //Salta líneas corruptas o mal formadas.
 
                     Fruta fruta = new Fruta(
-                            Integer.parseInt(campos[0]),
+                            Integer.parseInt(campos[0]), //Convierten el texto a números
                             campos[1],
-                            Double.parseDouble(campos[2]),
+                            Double.parseDouble(campos[2]),//Convierten el texto a números
                             Integer.parseInt(campos[3])
                     );
                     nuevoInventario.add(fruta);
@@ -192,7 +194,7 @@ public class ProyectoBonana {
             System.out.println("✅ Inventario importado correctamente");
 
         } catch (IOException e) {
-            System.out.println("❌ Error al importar: " + e.getMessage());
+            System.out.println("❌ Error al importar: " + e.getMessage()); //e.getMessage()MuesMuestra el error específico que ocurrió
         }
     }
 }
